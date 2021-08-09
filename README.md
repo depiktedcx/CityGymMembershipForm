@@ -29,5 +29,6 @@ Make sure to include the following, and also refer to the marking schedule:
   should capture all details from the membership form.
   * Ensure there is suitable error control by informing the user if there are
 incomplete fields or incorrect user input.
+<br>
 Note: You are not required to make an exact replica of your prototype. Any deviation
 from your prototype will not impact your final grade for this assignment
