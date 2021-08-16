@@ -34,7 +34,7 @@ namespace CityGymMembershipForm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void calculate(object sender, EventArgs e)
+        private void calculate()
         {
             //reset extras cost and selections to avoid doubling
             extrasCost = 0;
@@ -48,7 +48,7 @@ namespace CityGymMembershipForm
             if (checkBoxDiet.Checked) { extras.Add("Diet Consultation"); }
             extrasCost += (checkBoxVideos.Checked) ? 2 : 0;
             if (checkBoxVideos.Checked) { extras.Add("Online Video Access"); }
-            //check the frequency and adjust the cost of extras
+            //check the frequency of payment
             frequency = comboBoxFrequency.Text;
             //set cost of membership
             membershipType = comboBoxType.Text;
@@ -63,8 +63,11 @@ namespace CityGymMembershipForm
                 case 2:
                     membershipCost = 20;
                     break;
+                default:
+                    MessageBox.Show("You shouldn't be here");
+                    break;
             }
-            //display the cost of membership as currency
+            //display the cost of membership in details
             textBoxMembership.Text = $"{membershipCost:C}";
             //add the discounts from the selected duration
             duration = comboBoxDuration.Text;
@@ -79,20 +82,28 @@ namespace CityGymMembershipForm
                 case 2:
                     discount = 5;
                     break;
+                default:
+                    MessageBox.Show("You shouldn't be here");
+                    break;
             }
             //calculate the 1% discount of direct debit and add to discount
             discount += (checkBoxDirect.Checked) ? membershipCost * 0.01 : 0;
             //calculate the total cost
             totalCost = membershipCost + extrasCost - discount;
-            //display the cost of the selected extras
+            //display the cost of the selected extras in details
             textBoxExtras.Text = $"{extrasCost:C}";
             //display the total cost of the membership and extras
-            textBoxNet.Text = $"{totalCost:C}";
+            //textBoxNet.Text = $"{totalCost:C}";
+            textBoxNet.Text = $"{totalCost * 4 * double.Parse(duration.Split(' ')[0]):C}";
             //display amount of discounts garnered
             textBoxDiscount.Text = $"{discount:C}";
             //display amount to pay per week/month
             regularPayments = (frequency.Equals("Monthly")) ? totalCost * 4 : totalCost;
             textBoxRegularPayments.Text = $"{regularPayments:C}";
+        }
+        private void calculate(object sender, EventArgs e)
+        {
+            calculate();
         }
         /// <summary>
         /// Reset the membership form to default values
@@ -117,7 +128,7 @@ namespace CityGymMembershipForm
             checkBoxVideos.Checked = false;
             checkBoxDirect.Checked = false;
             //recalculate the costs
-            calculate(null, null);
+            calculate();
         }
         /// <summary>
         /// Prevent entry of non-numeric values in textbox
@@ -139,16 +150,20 @@ namespace CityGymMembershipForm
         /// <param name="e"></param>
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-
-            if (textBoxFirstName.Text.Length == 0 || textBoxLastName.Text.Length == 0 || textBoxMobile.Text.Length == 0 || textBoxAddress.Text.Length == 0)
+            //check if any detail textsboxes are empty
+            if (textBoxFirstName.Text.Length <= 0 || textBoxLastName.Text.Length <= 0 || textBoxMobile.Text.Length <= 0 || textBoxAddress.Text.Length <= 0)
             {
                 MessageBox.Show("You have not completed all fields", "Incomplete form", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
+                //call calculate to update payment details if user has not clicked calculate
+                calculate();
                 //name, mobile, address of member. path of file where member data is stored. id of member
-                string name, mobile, address, path, id;
+                string name, mobile, address, path;
+                //string id;
                 name = $"{textBoxFirstName.Text} {textBoxLastName.Text}";
+                /*
                 //check if directory exists, if not create it
                 if (!Directory.Exists("members"))
                 {
@@ -162,6 +177,7 @@ namespace CityGymMembershipForm
                     id = $"0{id}";
                 }
                 path = $"members\\{id}.txt";
+                */
                 mobile = textBoxMobile.Text;
                 address = textBoxAddress.Text;
                 //what will be written to the text file
@@ -181,9 +197,10 @@ Extra: {s}";
                 appendment = $@"{appendment}
 Membership cost: {membershipCost:C}
 Extras cost: {extrasCost:C}
-Total cost: {totalCost:C}
 Discount received: {discount:C}
-Regular payments: {regularPayments:C}";
+Total cost: {totalCost * 4 * double.Parse(duration.Split(' ')[0]):C}
+Regular payments: {regularPayments:C}
+";
                 //display information given to form to user
                 DialogResult result = MessageBox.Show($@"You are about to submit the following information:
 {appendment}", "Confirm details", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -193,13 +210,21 @@ Regular payments: {regularPayments:C}";
                     //try write to file
                     try
                     {
-                        //write to file
-                        StreamWriter writer = new StreamWriter(path);
-                        //append to existing file StreamWriter writer = new StreamWriter(path, append: true);
-                        writer.WriteLine(appendment);
-                        //close file
-                        writer.Close();
-                        MessageBox.Show($"Assigned member ID: {id}");
+                        //using open file dialog to avoid "overwrite file" prompt
+                        //set filter, allow only text files
+                        openFileDialog1.Filter = "Text Files|*.txt";
+                        openFileDialog1.RestoreDirectory = true;
+                        //open save file dialog
+                        if(openFileDialog1.ShowDialog() == DialogResult.OK)
+                        {
+                            path = openFileDialog1.FileName;
+                            //write to file
+                            StreamWriter writer = new StreamWriter(path, append: true);
+                            writer.WriteLine(appendment);
+                            //close file
+                            writer.Close();
+                            //MessageBox.Show($"Assigned member ID: {id}");
+                        }
                     }
                     catch(Exception ex)
                     {

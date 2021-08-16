@@ -29,6 +29,7 @@ namespace CityGymMembershipForm
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMembershipForm));
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelCustomerDetails = new System.Windows.Forms.Label();
@@ -44,7 +45,7 @@ namespace CityGymMembershipForm
             this.comboBoxFrequency = new System.Windows.Forms.ComboBox();
             this.labelMembershipDetails = new System.Windows.Forms.Label();
             this.labelPaymentDetails = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelExtras = new System.Windows.Forms.Label();
             this.labelType = new System.Windows.Forms.Label();
             this.labelDuration = new System.Windows.Forms.Label();
             this.checkBox247 = new System.Windows.Forms.CheckBox();
@@ -64,13 +65,15 @@ namespace CityGymMembershipForm
             this.labelMembershipCost = new System.Windows.Forms.Label();
             this.textBoxRegularPayments = new System.Windows.Forms.TextBox();
             this.labelRegularPayments = new System.Windows.Forms.Label();
-            this.textBoxDiscounts = new System.Windows.Forms.TextBox();
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.labelLine1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelLine2 = new System.Windows.Forms.Label();
             this.labelDetails = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.buttonCalculate = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,10 +172,11 @@ namespace CityGymMembershipForm
             // textBoxMobile
             // 
             this.textBoxMobile.Location = new System.Drawing.Point(410, 189);
-            this.textBoxMobile.MaxLength = 9;
+            this.textBoxMobile.MaxLength = 11;
             this.textBoxMobile.Name = "textBoxMobile";
             this.textBoxMobile.Size = new System.Drawing.Size(177, 20);
             this.textBoxMobile.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.textBoxMobile, "Numbers only.\r\nExample: 0123456789\r\n");
             this.textBoxMobile.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numbersOnly);
             // 
             // comboBoxFrequency
@@ -186,7 +190,6 @@ namespace CityGymMembershipForm
             this.comboBoxFrequency.Name = "comboBoxFrequency";
             this.comboBoxFrequency.Size = new System.Drawing.Size(104, 21);
             this.comboBoxFrequency.TabIndex = 22;
-            this.comboBoxFrequency.SelectedIndexChanged += new System.EventHandler(this.calculate);
             // 
             // labelMembershipDetails
             // 
@@ -208,15 +211,15 @@ namespace CityGymMembershipForm
             this.labelPaymentDetails.TabIndex = 20;
             this.labelPaymentDetails.Text = "Payment Options";
             // 
-            // label3
+            // labelExtras
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(120, 379);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 19);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Extras";
+            this.labelExtras.AutoSize = true;
+            this.labelExtras.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelExtras.Location = new System.Drawing.Point(120, 379);
+            this.labelExtras.Name = "labelExtras";
+            this.labelExtras.Size = new System.Drawing.Size(58, 19);
+            this.labelExtras.TabIndex = 9;
+            this.labelExtras.Text = "Extras";
             // 
             // labelType
             // 
@@ -237,6 +240,7 @@ namespace CityGymMembershipForm
             this.labelDuration.Size = new System.Drawing.Size(63, 17);
             this.labelDuration.TabIndex = 14;
             this.labelDuration.Text = "Duration";
+            this.toolTip1.SetToolTip(this.labelDuration, "* Sign up for a 12-month contract to receive a");
             // 
             // checkBox247
             // 
@@ -248,7 +252,6 @@ namespace CityGymMembershipForm
             this.checkBox247.TabIndex = 16;
             this.checkBox247.Text = "24/7 Access ($1 per week)";
             this.checkBox247.UseVisualStyleBackColor = true;
-            this.checkBox247.CheckedChanged += new System.EventHandler(this.calculate);
             // 
             // checkBoxTrainer
             // 
@@ -260,7 +263,6 @@ namespace CityGymMembershipForm
             this.checkBoxTrainer.TabIndex = 17;
             this.checkBoxTrainer.Text = "Personal Trainer ($20 per week)";
             this.checkBoxTrainer.UseVisualStyleBackColor = true;
-            this.checkBoxTrainer.CheckedChanged += new System.EventHandler(this.calculate);
             // 
             // checkBoxDiet
             // 
@@ -272,7 +274,6 @@ namespace CityGymMembershipForm
             this.checkBoxDiet.TabIndex = 18;
             this.checkBoxDiet.Text = "Diet Consultation ($20 per week)";
             this.checkBoxDiet.UseVisualStyleBackColor = true;
-            this.checkBoxDiet.CheckedChanged += new System.EventHandler(this.calculate);
             // 
             // checkBoxVideos
             // 
@@ -284,7 +285,6 @@ namespace CityGymMembershipForm
             this.checkBoxVideos.TabIndex = 19;
             this.checkBoxVideos.Text = "Access Online Fitness Videos ($2 per week)";
             this.checkBoxVideos.UseVisualStyleBackColor = true;
-            this.checkBoxVideos.CheckedChanged += new System.EventHandler(this.calculate);
             // 
             // comboBoxType
             // 
@@ -298,7 +298,6 @@ namespace CityGymMembershipForm
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(113, 21);
             this.comboBoxType.TabIndex = 13;
-            this.comboBoxType.SelectedIndexChanged += new System.EventHandler(this.calculate);
             // 
             // comboBoxDuration
             // 
@@ -312,7 +311,9 @@ namespace CityGymMembershipForm
             this.comboBoxDuration.Name = "comboBoxDuration";
             this.comboBoxDuration.Size = new System.Drawing.Size(113, 21);
             this.comboBoxDuration.TabIndex = 15;
-            this.comboBoxDuration.SelectedIndexChanged += new System.EventHandler(this.calculate);
+            this.toolTip1.SetToolTip(this.comboBoxDuration, "* Sign up for a 12-month contract to receive a\r\n$2 per week discount on any membe" +
+        "rship type.\r\n\r\n** Sign up for 24-month contract to receive a\r\n$5 per week discou" +
+        "nt on any membership type.");
             // 
             // checkBoxDirect
             // 
@@ -323,44 +324,48 @@ namespace CityGymMembershipForm
             this.checkBoxDirect.Size = new System.Drawing.Size(122, 22);
             this.checkBoxDirect.TabIndex = 23;
             this.checkBoxDirect.Text = "Direct Debit***";
+            this.toolTip1.SetToolTip(this.checkBoxDirect, "*** For Direct Debits, there is a 1% discount on the base membership cost.");
             this.checkBoxDirect.UseVisualStyleBackColor = true;
-            this.checkBoxDirect.CheckedChanged += new System.EventHandler(this.calculate);
             // 
             // textBoxNet
             // 
             this.textBoxNet.Enabled = false;
-            this.textBoxNet.Location = new System.Drawing.Point(461, 496);
+            this.textBoxNet.Location = new System.Drawing.Point(480, 496);
             this.textBoxNet.Name = "textBoxNet";
             this.textBoxNet.ReadOnly = true;
-            this.textBoxNet.Size = new System.Drawing.Size(126, 20);
+            this.textBoxNet.Size = new System.Drawing.Size(107, 20);
             this.textBoxNet.TabIndex = 30;
+            this.toolTip1.SetToolTip(this.textBoxNet, "Total cost of membership\r\nover contracted period\r\n");
             // 
             // textBoxExtras
             // 
             this.textBoxExtras.Enabled = false;
-            this.textBoxExtras.Location = new System.Drawing.Point(461, 442);
+            this.textBoxExtras.Location = new System.Drawing.Point(480, 442);
             this.textBoxExtras.Name = "textBoxExtras";
             this.textBoxExtras.ReadOnly = true;
-            this.textBoxExtras.Size = new System.Drawing.Size(126, 20);
+            this.textBoxExtras.Size = new System.Drawing.Size(107, 20);
             this.textBoxExtras.TabIndex = 28;
+            this.toolTip1.SetToolTip(this.textBoxExtras, "Cost of selected extras per week");
             // 
             // textBoxDiscount
             // 
             this.textBoxDiscount.Enabled = false;
-            this.textBoxDiscount.Location = new System.Drawing.Point(461, 470);
+            this.textBoxDiscount.Location = new System.Drawing.Point(480, 470);
             this.textBoxDiscount.Name = "textBoxDiscount";
             this.textBoxDiscount.ReadOnly = true;
-            this.textBoxDiscount.Size = new System.Drawing.Size(126, 20);
+            this.textBoxDiscount.Size = new System.Drawing.Size(107, 20);
             this.textBoxDiscount.TabIndex = 32;
+            this.toolTip1.SetToolTip(this.textBoxDiscount, "Discounts received through promotions per week");
             // 
             // textBoxMembership
             // 
             this.textBoxMembership.Enabled = false;
-            this.textBoxMembership.Location = new System.Drawing.Point(461, 416);
+            this.textBoxMembership.Location = new System.Drawing.Point(480, 416);
             this.textBoxMembership.Name = "textBoxMembership";
             this.textBoxMembership.ReadOnly = true;
-            this.textBoxMembership.Size = new System.Drawing.Size(126, 20);
+            this.textBoxMembership.Size = new System.Drawing.Size(107, 20);
             this.textBoxMembership.TabIndex = 26;
+            this.toolTip1.SetToolTip(this.textBoxMembership, "Cost of membership per week");
             // 
             // labelNet
             // 
@@ -371,6 +376,7 @@ namespace CityGymMembershipForm
             this.labelNet.Size = new System.Drawing.Size(62, 17);
             this.labelNet.TabIndex = 29;
             this.labelNet.Text = "Net cost";
+            this.toolTip1.SetToolTip(this.labelNet, "Total cost of membership\r\nover contracted period");
             // 
             // labelExtraCharges
             // 
@@ -381,6 +387,7 @@ namespace CityGymMembershipForm
             this.labelExtraCharges.Size = new System.Drawing.Size(99, 17);
             this.labelExtraCharges.TabIndex = 27;
             this.labelExtraCharges.Text = "Extra charges";
+            this.toolTip1.SetToolTip(this.labelExtraCharges, "Cost of selected extras per week");
             // 
             // labelTotalDiscount
             // 
@@ -391,6 +398,7 @@ namespace CityGymMembershipForm
             this.labelTotalDiscount.Size = new System.Drawing.Size(100, 17);
             this.labelTotalDiscount.TabIndex = 31;
             this.labelTotalDiscount.Text = "Total Discount";
+            this.toolTip1.SetToolTip(this.labelTotalDiscount, "Discounts received through promotions per week");
             // 
             // labelMembershipCost
             // 
@@ -401,15 +409,17 @@ namespace CityGymMembershipForm
             this.labelMembershipCost.Size = new System.Drawing.Size(120, 17);
             this.labelMembershipCost.TabIndex = 25;
             this.labelMembershipCost.Text = "Membership cost";
+            this.toolTip1.SetToolTip(this.labelMembershipCost, "Cost of membership per week\r\n");
             // 
             // textBoxRegularPayments
             // 
             this.textBoxRegularPayments.Enabled = false;
-            this.textBoxRegularPayments.Location = new System.Drawing.Point(461, 522);
+            this.textBoxRegularPayments.Location = new System.Drawing.Point(480, 522);
             this.textBoxRegularPayments.Name = "textBoxRegularPayments";
             this.textBoxRegularPayments.ReadOnly = true;
-            this.textBoxRegularPayments.Size = new System.Drawing.Size(126, 20);
+            this.textBoxRegularPayments.Size = new System.Drawing.Size(107, 20);
             this.textBoxRegularPayments.TabIndex = 34;
+            this.toolTip1.SetToolTip(this.textBoxRegularPayments, "Payment to be made per week/month");
             // 
             // labelRegularPayments
             // 
@@ -420,36 +430,27 @@ namespace CityGymMembershipForm
             this.labelRegularPayments.Size = new System.Drawing.Size(129, 17);
             this.labelRegularPayments.TabIndex = 33;
             this.labelRegularPayments.Text = "Regular Payments";
-            // 
-            // textBoxDiscounts
-            // 
-            this.textBoxDiscounts.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDiscounts.Location = new System.Drawing.Point(12, 630);
-            this.textBoxDiscounts.Multiline = true;
-            this.textBoxDiscounts.Name = "textBoxDiscounts";
-            this.textBoxDiscounts.ReadOnly = true;
-            this.textBoxDiscounts.Size = new System.Drawing.Size(594, 45);
-            this.textBoxDiscounts.TabIndex = 35;
-            this.textBoxDiscounts.Text = resources.GetString("textBoxDiscounts.Text");
-            this.textBoxDiscounts.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.labelRegularPayments, "Payment to be made per week/month");
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(103, 592);
+            this.buttonReset.Location = new System.Drawing.Point(76, 592);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(75, 23);
-            this.buttonReset.TabIndex = 36;
+            this.buttonReset.TabIndex = 0;
             this.buttonReset.Text = "Reset";
+            this.toolTip1.SetToolTip(this.buttonReset, "Clears \"Customer Details\" textboxes and resets all selections");
             this.buttonReset.UseVisualStyleBackColor = true;
             this.buttonReset.Click += new System.EventHandler(this.reset);
             // 
             // buttonSubmit
             // 
-            this.buttonSubmit.Location = new System.Drawing.Point(461, 592);
+            this.buttonSubmit.Location = new System.Drawing.Point(463, 592);
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(75, 23);
             this.buttonSubmit.TabIndex = 37;
             this.buttonSubmit.Text = "Submit";
+            this.toolTip1.SetToolTip(this.buttonSubmit, "Submit your details and export to a .TXT file");
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
@@ -461,13 +462,13 @@ namespace CityGymMembershipForm
             this.labelLine1.Size = new System.Drawing.Size(610, 2);
             this.labelLine1.TabIndex = 38;
             // 
-            // label4
+            // labelLine2
             // 
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Location = new System.Drawing.Point(309, 293);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(2, 250);
-            this.label4.TabIndex = 41;
+            this.labelLine2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelLine2.Location = new System.Drawing.Point(309, 293);
+            this.labelLine2.Name = "labelLine2";
+            this.labelLine2.Size = new System.Drawing.Size(2, 250);
+            this.labelLine2.TabIndex = 41;
             // 
             // labelDetails
             // 
@@ -489,17 +490,37 @@ namespace CityGymMembershipForm
             this.pictureBoxLogo.TabIndex = 42;
             this.pictureBoxLogo.TabStop = false;
             // 
+            // buttonCalculate
+            // 
+            this.buttonCalculate.Location = new System.Drawing.Point(268, 592);
+            this.buttonCalculate.Name = "buttonCalculate";
+            this.buttonCalculate.Size = new System.Drawing.Size(75, 23);
+            this.buttonCalculate.TabIndex = 36;
+            this.buttonCalculate.Text = "Calculate";
+            this.toolTip1.SetToolTip(this.buttonCalculate, "Calculate the cost of the membership. The results are displayed under \"Payment De" +
+        "tails\"");
+            this.buttonCalculate.UseVisualStyleBackColor = true;
+            this.buttonCalculate.Click += new System.EventHandler(this.calculate);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ShowAlways = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // FormMembershipForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 678);
+            this.ClientSize = new System.Drawing.Size(618, 626);
+            this.Controls.Add(this.buttonCalculate);
             this.Controls.Add(this.pictureBoxLogo);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelLine2);
             this.Controls.Add(this.labelLine1);
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.buttonReset);
-            this.Controls.Add(this.textBoxDiscounts);
             this.Controls.Add(this.textBoxRegularPayments);
             this.Controls.Add(this.labelRegularPayments);
             this.Controls.Add(this.textBoxNet);
@@ -526,7 +547,7 @@ namespace CityGymMembershipForm
             this.Controls.Add(this.labelFrequency);
             this.Controls.Add(this.labelDuration);
             this.Controls.Add(this.labelType);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelExtras);
             this.Controls.Add(this.labelPaymentDetails);
             this.Controls.Add(this.labelMembershipDetails);
             this.Controls.Add(this.labelMobile);
@@ -559,7 +580,7 @@ namespace CityGymMembershipForm
         private System.Windows.Forms.ComboBox comboBoxFrequency;
         private System.Windows.Forms.Label labelMembershipDetails;
         private System.Windows.Forms.Label labelPaymentDetails;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelExtras;
         private System.Windows.Forms.Label labelType;
         private System.Windows.Forms.Label labelDuration;
         private System.Windows.Forms.CheckBox checkBox247;
@@ -579,13 +600,15 @@ namespace CityGymMembershipForm
         private System.Windows.Forms.Label labelMembershipCost;
         private System.Windows.Forms.TextBox textBoxRegularPayments;
         private System.Windows.Forms.Label labelRegularPayments;
-        private System.Windows.Forms.TextBox textBoxDiscounts;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.Label labelLine1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelLine2;
         private System.Windows.Forms.Label labelDetails;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.Button buttonCalculate;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
