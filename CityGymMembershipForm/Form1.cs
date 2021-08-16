@@ -136,7 +136,7 @@ namespace CityGymMembershipForm
         /// <param name="e"></param>
         private void numbersOnly(object sender, KeyPressEventArgs e)
         {
-            //check if key is not backspace or one of the numbers
+            //check if key is not backspace or one of the numbers. allows backspacing
             if ((!(e.KeyChar == (char)Keys.Back) && !(char.IsDigit(e.KeyChar))) )
             {
                 e.Handled = true;
@@ -216,6 +216,19 @@ Regular payments: {regularPayments:C}
                         MessageBox.Show($"An error occurred when attempting to write to file:\n{ex.Message}");
                     }
                 }
+            }
+        }
+        /// <summary>
+        /// Prevent entry of numeric and special character entry, excludes hyphens
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void alphaOnly(object sender, KeyPressEventArgs e)
+        {
+            //prevents entry of anything not a letter or hyphen. allows backspacing
+            if ((!(e.KeyChar == '-') && !char.IsLetter(e.KeyChar)) && !(e.KeyChar == (char)Keys.Back))
+            {
+                e.Handled = true;
             }
         }
     }

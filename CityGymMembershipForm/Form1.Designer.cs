@@ -74,6 +74,7 @@ namespace CityGymMembershipForm
             this.buttonCalculate = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,6 +154,7 @@ namespace CityGymMembershipForm
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(177, 20);
             this.textBoxFirstName.TabIndex = 4;
+            this.textBoxFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.alphaOnly);
             // 
             // textBoxLastName
             // 
@@ -160,6 +162,7 @@ namespace CityGymMembershipForm
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(177, 20);
             this.textBoxLastName.TabIndex = 6;
+            this.textBoxLastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.alphaOnly);
             // 
             // textBoxAddress
             // 
@@ -168,6 +171,7 @@ namespace CityGymMembershipForm
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(177, 57);
             this.textBoxAddress.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.textBoxAddress, "Format:\r\n123 Example Street\r\nSuburb/Town, Postcode");
             // 
             // textBoxMobile
             // 
@@ -510,11 +514,19 @@ namespace CityGymMembershipForm
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(39, 30);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox1.TabIndex = 43;
+            // 
             // FormMembershipForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 626);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.buttonCalculate);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.labelLine2);
@@ -609,6 +621,7 @@ namespace CityGymMembershipForm
         private System.Windows.Forms.Button buttonCalculate;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
 
