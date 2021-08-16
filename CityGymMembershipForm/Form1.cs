@@ -93,7 +93,6 @@ namespace CityGymMembershipForm
             //display the cost of the selected extras in details
             textBoxExtras.Text = $"{extrasCost:C}";
             //display the total cost of the membership and extras
-            //textBoxNet.Text = $"{totalCost:C}";
             textBoxNet.Text = $"{totalCost * 4 * double.Parse(duration.Split(' ')[0]):C}";
             //display amount of discounts garnered
             textBoxDiscount.Text = $"{discount:C}";
@@ -163,21 +162,6 @@ namespace CityGymMembershipForm
                 string name, mobile, address, path;
                 //string id;
                 name = $"{textBoxFirstName.Text} {textBoxLastName.Text}";
-                /*
-                //check if directory exists, if not create it
-                if (!Directory.Exists("members"))
-                {
-                    Directory.CreateDirectory("members");
-                }
-                //create id based on file count in directory
-                id = Directory.GetFiles("members").Length.ToString();
-                //if id is not 5 digits, prepend 0s
-                while (id.Length < 5)
-                {
-                    id = $"0{id}";
-                }
-                path = $"members\\{id}.txt";
-                */
                 mobile = textBoxMobile.Text;
                 address = textBoxAddress.Text;
                 //what will be written to the text file
