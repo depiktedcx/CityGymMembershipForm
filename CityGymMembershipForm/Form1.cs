@@ -159,9 +159,20 @@ namespace CityGymMembershipForm
                 //call calculate to update payment details if user has not clicked calculate
                 calculate();
                 //name, mobile, address of member. path of file where member data is stored. id of member
-                string name, mobile, address, path;
-                //string id;
+                string name, mobile, address, path, id;
                 name = $"{textBoxFirstName.Text} {textBoxLastName.Text}";
+                //check if directory exists, if not create it
+                if (!Directory.Exists("members"))
+                {
+                    Directory.CreateDirectory("members");
+                }
+                //assign id based on file count
+                id = Directory.GetFiles("members").Length.ToString();
+                while(id.Length < 5)
+                {
+                    id = $"0{id}";
+                }
+                path = $"members\\{id}.txt";
                 mobile = textBoxMobile.Text;
                 address = textBoxAddress.Text;
                 //what will be written to the text file
@@ -194,23 +205,14 @@ Regular payments: {regularPayments:C}
                     //try write to file
                     try
                     {
-                        //using open file dialog to avoid "overwrite file" prompt
-                        //set filter, allow only text files
-                        openFileDialog1.Filter = "Text Files|*.txt";
-                        openFileDialog1.RestoreDirectory = true;
-                        //open save file dialog
-                        if(openFileDialog1.ShowDialog() == DialogResult.OK)
-                        {
-                            path = openFileDialog1.FileName;
-                            //write to file
-                            StreamWriter writer = new StreamWriter(path, append: true);
-                            writer.WriteLine(appendment);
-                            //close file
-                            writer.Close();
-                            //MessageBox.Show($"Assigned member ID: {id}");
-                        }
+                        //write to file
+                        StreamWriter writer = new StreamWriter(path);
+                        writer.WriteLine(appendment);
+                        //close file
+                        writer.Close();
+                        MessageBox.Show($"Assigned member ID: {id}");
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         //display error if error occurs
                         MessageBox.Show($"An error occurred when attempting to write to file:\n{ex.Message}");

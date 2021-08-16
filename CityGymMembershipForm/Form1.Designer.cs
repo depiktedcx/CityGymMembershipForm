@@ -73,8 +73,6 @@ namespace CityGymMembershipForm
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.buttonCalculate = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,6 +125,7 @@ namespace CityGymMembershipForm
             this.labelMobile.Size = new System.Drawing.Size(49, 17);
             this.labelMobile.TabIndex = 9;
             this.labelMobile.Text = "Mobile";
+            this.toolTip1.SetToolTip(this.labelMobile, "Numbers only.\r\nExample: 0123456789\r\n\r\n");
             // 
             // labelAddress
             // 
@@ -137,6 +136,7 @@ namespace CityGymMembershipForm
             this.labelAddress.Size = new System.Drawing.Size(62, 17);
             this.labelAddress.TabIndex = 7;
             this.labelAddress.Text = "Address";
+            this.toolTip1.SetToolTip(this.labelAddress, "Format:\r\n123 Example Street\r\nSuburb/Town, Postcode\r\n");
             // 
             // labelFrequency
             // 
@@ -244,7 +244,9 @@ namespace CityGymMembershipForm
             this.labelDuration.Size = new System.Drawing.Size(63, 17);
             this.labelDuration.TabIndex = 14;
             this.labelDuration.Text = "Duration";
-            this.toolTip1.SetToolTip(this.labelDuration, "* Sign up for a 12-month contract to receive a");
+            this.toolTip1.SetToolTip(this.labelDuration, "* Sign up for a 12-month contract to receive a\r\n$2 per week discount on any membe" +
+        "rship type.\r\n\r\n** Sign up for 24-month contract to receive a\r\n$5 per week discou" +
+        "nt on any membership type.\r\n");
             // 
             // checkBox247
             // 
@@ -323,7 +325,7 @@ namespace CityGymMembershipForm
             // 
             this.checkBoxDirect.AutoSize = true;
             this.checkBoxDirect.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxDirect.Location = new System.Drawing.Point(400, 347);
+            this.checkBoxDirect.Location = new System.Drawing.Point(410, 342);
             this.checkBoxDirect.Name = "checkBoxDirect";
             this.checkBoxDirect.Size = new System.Drawing.Size(122, 22);
             this.checkBoxDirect.TabIndex = 23;
@@ -510,23 +512,11 @@ namespace CityGymMembershipForm
             // 
             this.toolTip1.ShowAlways = true;
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(39, 30);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 43;
-            // 
             // FormMembershipForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 626);
-            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.buttonCalculate);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.labelLine2);
@@ -620,8 +610,6 @@ namespace CityGymMembershipForm
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Button buttonCalculate;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
 
