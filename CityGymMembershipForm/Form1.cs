@@ -136,10 +136,19 @@ namespace CityGymMembershipForm
         /// <param name="e"></param>
         private void numbersOnly(object sender, KeyPressEventArgs e)
         {
+            //cast sender as textbox
+            TextBox t = (TextBox)sender;
             //check if key is not backspace or one of the numbers. allows backspacing
             if ((!(e.KeyChar == (char)Keys.Back) && !(char.IsDigit(e.KeyChar))) )
             {
+                //show tool tip for 1000ms
+                toolTip1.Show("Only numbers are allowed in this textbox", t, 0, t.Height, 1000);
                 e.Handled = true;
+            }
+            else if(t.Text.Length == 11)
+            {
+                //show tool tip for 1000ms
+                toolTip1.Show("You can only have 11 characters in this textbox", t, 0, t.Height, 1000);
             }
         }
         /// <summary>
@@ -230,6 +239,10 @@ Regular payments: {regularPayments:C}
             //prevents entry of anything not a letter or hyphen. allows backspacing
             if ((!(e.KeyChar == '-') && !char.IsLetter(e.KeyChar)) && !(e.KeyChar == (char)Keys.Back))
             {
+                //cast sender object as textbox
+                TextBox t = (TextBox)sender;
+                //show tool tip for 1000ms
+                toolTip1.Show("Only letters and hyphens are allowed in this textbox", t, 0, t.Height, 1000);
                 e.Handled = true;
             }
         }
