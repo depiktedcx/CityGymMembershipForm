@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CityGymMembershipForm
 {
-    public partial class FormMembershipForm : Form
+    public partial class Signup : Form
     {
         //easier access to values
         string membershipType = "";
@@ -23,7 +23,7 @@ namespace CityGymMembershipForm
         double totalCost = 0;
         double regularPayments = 0;
         List<string> extras = new List<string>();
-        public FormMembershipForm()
+        public Signup()
         {
             InitializeComponent();
             //set up the form

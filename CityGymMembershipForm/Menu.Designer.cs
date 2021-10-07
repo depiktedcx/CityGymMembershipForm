@@ -1,0 +1,89 @@
+﻿namespace CityGymMembershipForm
+{
+    partial class Menu
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
+            this.buttonJoin = new System.Windows.Forms.Button();
+            this.buttonView = new System.Windows.Forms.Button();
+            this.buttonBook = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // buttonJoin
+            // 
+            this.buttonJoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonJoin.Location = new System.Drawing.Point(12, 12);
+            this.buttonJoin.Name = "buttonJoin";
+            this.buttonJoin.Size = new System.Drawing.Size(308, 52);
+            this.buttonJoin.TabIndex = 0;
+            this.buttonJoin.Text = "Join Gym";
+            this.buttonJoin.UseVisualStyleBackColor = true;
+            this.buttonJoin.Click += new System.EventHandler(this.buttonJoin_Click);
+            // 
+            // buttonView
+            // 
+            this.buttonView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonView.Location = new System.Drawing.Point(12, 92);
+            this.buttonView.Name = "buttonView";
+            this.buttonView.Size = new System.Drawing.Size(308, 52);
+            this.buttonView.TabIndex = 1;
+            this.buttonView.Text = "Search Members";
+            this.buttonView.UseVisualStyleBackColor = true;
+            // 
+            // buttonBook
+            // 
+            this.buttonBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBook.Location = new System.Drawing.Point(12, 174);
+            this.buttonBook.Name = "buttonBook";
+            this.buttonBook.Size = new System.Drawing.Size(308, 52);
+            this.buttonBook.TabIndex = 2;
+            this.buttonBook.Text = "Book Class";
+            this.buttonBook.UseVisualStyleBackColor = true;
+            // 
+            // Menu
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(332, 241);
+            this.Controls.Add(this.buttonBook);
+            this.Controls.Add(this.buttonView);
+            this.Controls.Add(this.buttonJoin);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Menu";
+            this.Text = "Menu";
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button buttonJoin;
+        private System.Windows.Forms.Button buttonView;
+        private System.Windows.Forms.Button buttonBook;
+    }
+}

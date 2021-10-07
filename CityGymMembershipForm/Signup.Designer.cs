@@ -1,7 +1,7 @@
 ﻿
 namespace CityGymMembershipForm
 {
-    partial class FormMembershipForm
+    partial class Signup
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace CityGymMembershipForm
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMembershipForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Signup));
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelCustomerDetails = new System.Windows.Forms.Label();
             this.labelFirstName = new System.Windows.Forms.Label();
@@ -70,9 +70,9 @@ namespace CityGymMembershipForm
             this.labelLine1 = new System.Windows.Forms.Label();
             this.labelLine2 = new System.Windows.Forms.Label();
             this.labelDetails = new System.Windows.Forms.Label();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.buttonCalculate = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -486,16 +486,6 @@ namespace CityGymMembershipForm
             this.labelDetails.TabIndex = 24;
             this.labelDetails.Text = "Payment Details";
             // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.BackgroundImage = global::CityGymMembershipForm.Properties.Resources.logo;
-            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(225, 12);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(190, 70);
-            this.pictureBoxLogo.TabIndex = 42;
-            this.pictureBoxLogo.TabStop = false;
-            // 
             // buttonCalculate
             // 
             this.buttonCalculate.Location = new System.Drawing.Point(268, 592);
@@ -512,7 +502,17 @@ namespace CityGymMembershipForm
             // 
             this.toolTip1.ShowAlways = true;
             // 
-            // FormMembershipForm
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackgroundImage = global::CityGymMembershipForm.Properties.Resources.logo;
+            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(225, 12);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(190, 70);
+            this.pictureBoxLogo.TabIndex = 42;
+            this.pictureBoxLogo.TabStop = false;
+            // 
+            // Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -559,8 +559,8 @@ namespace CityGymMembershipForm
             this.Controls.Add(this.labelCustomerDetails);
             this.Controls.Add(this.labelTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormMembershipForm";
-            this.Text = "City Gym Membership Form";
+            this.Name = "Signup";
+            this.Text = "Signup Form";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

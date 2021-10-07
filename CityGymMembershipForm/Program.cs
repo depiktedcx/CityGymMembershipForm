@@ -16,7 +16,7 @@ namespace CityGymMembershipForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMembershipForm());
+            Application.Run(new Menu());
         }
     }
 }
