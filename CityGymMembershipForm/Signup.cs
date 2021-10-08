@@ -23,11 +23,14 @@ namespace CityGymMembershipForm
         double totalCost = 0;
         double regularPayments = 0;
         List<string> extras = new List<string>();
-        public Signup()
+        //menu instance
+        Menu menuInstance;
+        public Signup(Menu m)
         {
             InitializeComponent();
             //set up the form
             reset(null, null);
+            menuInstance = m;
         }
         /// <summary>
         /// Calculate the cost of the membership
@@ -245,6 +248,15 @@ Regular payments: {regularPayments:C}
                 toolTip1.Show("Only letters and hyphens are allowed in this textbox", t, 0, t.Height, 1000);
                 e.Handled = true;
             }
+        }
+        /// <summary>
+        /// Show menu again
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Signup_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            menuInstance.Show();
         }
     }
 }

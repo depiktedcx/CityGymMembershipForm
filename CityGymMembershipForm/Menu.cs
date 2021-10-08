@@ -19,7 +19,14 @@ namespace CityGymMembershipForm
 
         private void buttonJoin_Click(object sender, EventArgs e)
         {
-            new Signup().Show();
+            new Signup(this).Show();
+            this.Hide();
+        }
+
+        private void buttonView_Click(object sender, EventArgs e)
+        {
+            new Search_Members(this).Show();
+            this.Hide();
         }
     }
 }

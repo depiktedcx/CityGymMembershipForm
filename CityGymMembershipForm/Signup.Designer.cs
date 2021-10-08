@@ -561,6 +561,7 @@ namespace CityGymMembershipForm
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Signup";
             this.Text = "Signup Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Signup_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -54,6 +54,7 @@
             this.buttonView.TabIndex = 1;
             this.buttonView.Text = "Search Members";
             this.buttonView.UseVisualStyleBackColor = true;
+            this.buttonView.Click += new System.EventHandler(this.buttonView_Click);
             // 
             // buttonBook
             // 
