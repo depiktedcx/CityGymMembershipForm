@@ -229,6 +229,8 @@ Regular payments: {regularPayments:C}
                         //add to database
                         cityGymDatabaseDataSet.MemberMembership.Rows.Add(memberMembershipRow);
                         this.tableAdapterManager.UpdateAll(cityGymDatabaseDataSet);
+                        //reset form
+                        reset(sender, null);
                     }
                     catch (Exception ex)
                     {
@@ -263,23 +265,6 @@ Regular payments: {regularPayments:C}
         private void Signup_FormClosing(object sender, FormClosingEventArgs e)
         {
             menuInstance.Show();
-        }
-
-        private void memberBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.memberBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.cityGymDatabaseDataSet);
-
-        }
-
-        private void Signup_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'cityGymDatabaseDataSet.MemberMembership' table. You can move, or remove it, as needed.
-            this.memberMembershipTableAdapter.Fill(this.cityGymDatabaseDataSet.MemberMembership);
-            // TODO: This line of code loads data into the 'cityGymDatabaseDataSet.Member' table. You can move, or remove it, as needed.
-            this.memberTableAdapter.Fill(this.cityGymDatabaseDataSet.Member);
-
         }
     }
 }

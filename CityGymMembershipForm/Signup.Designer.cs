@@ -77,8 +77,8 @@ namespace CityGymMembershipForm
             this.memberBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.memberTableAdapter = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.MemberTableAdapter();
             this.tableAdapterManager = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.TableAdapterManager();
-            this.memberMembershipBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.memberMembershipTableAdapter = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.MemberMembershipTableAdapter();
+            this.memberMembershipBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityGymDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).BeginInit();
@@ -545,14 +545,14 @@ namespace CityGymMembershipForm
             this.tableAdapterManager.MemberTableAdapter = this.memberTableAdapter;
             this.tableAdapterManager.UpdateOrder = CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // memberMembershipTableAdapter
+            // 
+            this.memberMembershipTableAdapter.ClearBeforeFill = true;
+            // 
             // memberMembershipBindingSource
             // 
             this.memberMembershipBindingSource.DataMember = "MemberMembership";
             this.memberMembershipBindingSource.DataSource = this.cityGymDatabaseDataSet;
-            // 
-            // memberMembershipTableAdapter
-            // 
-            this.memberMembershipTableAdapter.ClearBeforeFill = true;
             // 
             // Signup
             // 
@@ -601,10 +601,12 @@ namespace CityGymMembershipForm
             this.Controls.Add(this.labelCustomerDetails);
             this.Controls.Add(this.labelTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(633, 677);
+            this.MinimumSize = new System.Drawing.Size(633, 677);
             this.Name = "Signup";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Signup Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Signup_FormClosing);
-            this.Load += new System.EventHandler(this.Signup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityGymDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).EndInit();

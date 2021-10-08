@@ -75,7 +75,10 @@
             this.Controls.Add(this.buttonView);
             this.Controls.Add(this.buttonJoin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(348, 280);
+            this.MinimumSize = new System.Drawing.Size(348, 280);
             this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.ResumeLayout(false);
 
