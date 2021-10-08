@@ -65,6 +65,7 @@
             this.buttonBook.TabIndex = 2;
             this.buttonBook.Text = "Book Class";
             this.buttonBook.UseVisualStyleBackColor = true;
+            this.buttonBook.Click += new System.EventHandler(this.buttonBook_Click);
             // 
             // Menu
             // 

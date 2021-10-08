@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Search_Members));
             this.cityGymDatabaseDataSet = new CityGymMembershipForm.CityGymDatabaseDataSet();
             this.memberBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.memberTableAdapter = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.MemberTableAdapter();
@@ -114,7 +115,7 @@
             // labelSearch
             // 
             this.labelSearch.AutoSize = true;
-            this.labelSearch.Location = new System.Drawing.Point(12, 256);
+            this.labelSearch.Location = new System.Drawing.Point(454, 257);
             this.labelSearch.Name = "labelSearch";
             this.labelSearch.Size = new System.Drawing.Size(86, 13);
             this.labelSearch.TabIndex = 2;
@@ -132,7 +133,7 @@
             "Address",
             "Mobile",
             "Membership"});
-            this.comboBoxSearch.Location = new System.Drawing.Point(104, 253);
+            this.comboBoxSearch.Location = new System.Drawing.Point(546, 254);
             this.comboBoxSearch.Name = "comboBoxSearch";
             this.comboBoxSearch.Size = new System.Drawing.Size(89, 21);
             this.comboBoxSearch.TabIndex = 3;
@@ -140,7 +141,7 @@
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(199, 253);
+            this.textBoxSearch.Location = new System.Drawing.Point(641, 254);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(200, 20);
             this.textBoxSearch.TabIndex = 4;
@@ -148,7 +149,7 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(324, 279);
+            this.buttonSearch.Location = new System.Drawing.Point(766, 280);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonSearch.TabIndex = 5;
@@ -158,7 +159,7 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(199, 279);
+            this.buttonClear.Location = new System.Drawing.Point(641, 280);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(75, 23);
             this.buttonClear.TabIndex = 6;
@@ -259,7 +260,7 @@
             "Basic",
             "Regular",
             "Premium"});
-            this.comboBoxMembership.Location = new System.Drawing.Point(199, 252);
+            this.comboBoxMembership.Location = new System.Drawing.Point(641, 253);
             this.comboBoxMembership.Name = "comboBoxMembership";
             this.comboBoxMembership.Size = new System.Drawing.Size(200, 21);
             this.comboBoxMembership.TabIndex = 8;
@@ -285,6 +286,7 @@
             this.Controls.Add(this.comboBoxSearch);
             this.Controls.Add(this.labelSearch);
             this.Controls.Add(this.memberDataGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Search_Members";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search_Members";

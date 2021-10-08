@@ -71,6 +71,12 @@
       <DependentUpon>CityGymDatabaseDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Fitness Class Booking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fitness Class Booking.Designer.cs">
+      <DependentUpon>Fitness Class Booking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Fitness Class Booking.resx">
+      <DependentUpon>Fitness Class Booking.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>

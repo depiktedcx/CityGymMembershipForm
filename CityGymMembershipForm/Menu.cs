@@ -28,5 +28,11 @@ namespace CityGymMembershipForm
             new Search_Members(this).Show();
             this.Hide();
         }
+
+        private void buttonBook_Click(object sender, EventArgs e)
+        {
+            new Fitness_Class_Booking(this).Show();
+            this.Hide();
+        }
     }
 }
