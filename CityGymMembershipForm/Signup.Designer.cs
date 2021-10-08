@@ -73,7 +73,16 @@ namespace CityGymMembershipForm
             this.buttonCalculate = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.cityGymDatabaseDataSet = new CityGymMembershipForm.CityGymDatabaseDataSet();
+            this.memberBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.memberTableAdapter = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.MemberTableAdapter();
+            this.tableAdapterManager = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.TableAdapterManager();
+            this.memberMembershipBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.memberMembershipTableAdapter = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.MemberMembershipTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cityGymDatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memberMembershipBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -512,11 +521,44 @@ namespace CityGymMembershipForm
             this.pictureBoxLogo.TabIndex = 42;
             this.pictureBoxLogo.TabStop = false;
             // 
+            // cityGymDatabaseDataSet
+            // 
+            this.cityGymDatabaseDataSet.DataSetName = "CityGymDatabaseDataSet";
+            this.cityGymDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // memberBindingSource
+            // 
+            this.memberBindingSource.DataMember = "Member";
+            this.memberBindingSource.DataSource = this.cityGymDatabaseDataSet;
+            // 
+            // memberTableAdapter
+            // 
+            this.memberTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BookingTableAdapter = null;
+            this.tableAdapterManager.ClassTableAdapter = null;
+            this.tableAdapterManager.MemberMembershipTableAdapter = this.memberMembershipTableAdapter;
+            this.tableAdapterManager.MembershipTableAdapter = null;
+            this.tableAdapterManager.MemberTableAdapter = this.memberTableAdapter;
+            this.tableAdapterManager.UpdateOrder = CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // memberMembershipBindingSource
+            // 
+            this.memberMembershipBindingSource.DataMember = "MemberMembership";
+            this.memberMembershipBindingSource.DataSource = this.cityGymDatabaseDataSet;
+            // 
+            // memberMembershipTableAdapter
+            // 
+            this.memberMembershipTableAdapter.ClearBeforeFill = true;
+            // 
             // Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 626);
+            this.ClientSize = new System.Drawing.Size(617, 638);
             this.Controls.Add(this.buttonCalculate);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.labelLine2);
@@ -562,7 +604,11 @@ namespace CityGymMembershipForm
             this.Name = "Signup";
             this.Text = "Signup Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Signup_FormClosing);
+            this.Load += new System.EventHandler(this.Signup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cityGymDatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memberMembershipBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -611,6 +657,12 @@ namespace CityGymMembershipForm
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Button buttonCalculate;
         private System.Windows.Forms.ToolTip toolTip1;
+        private CityGymDatabaseDataSet cityGymDatabaseDataSet;
+        private System.Windows.Forms.BindingSource memberBindingSource;
+        private CityGymDatabaseDataSetTableAdapters.MemberTableAdapter memberTableAdapter;
+        private CityGymDatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private CityGymDatabaseDataSetTableAdapters.MemberMembershipTableAdapter memberMembershipTableAdapter;
+        private System.Windows.Forms.BindingSource memberMembershipBindingSource;
     }
 }
 

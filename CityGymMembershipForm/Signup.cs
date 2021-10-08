@@ -171,22 +171,9 @@ namespace CityGymMembershipForm
                 //call calculate to update payment details if user has not clicked calculate
                 calculate();
                 //name, mobile, address of member. path of file where member data is stored. id of member
-                string name, mobile, address, path, id;
-                name = $"{textBoxFirstName.Text} {textBoxLastName.Text}";
-                //check if directory exists, if not create it
-                if (!Directory.Exists("members"))
-                {
-                    Directory.CreateDirectory("members");
-                }
-                //assign id based on file count
-                id = Directory.GetFiles("members").Length.ToString();
-                while(id.Length < 5)
-                {
-                    id = $"0{id}";
-                }
-                path = $"members\\{id}.txt";
-                mobile = textBoxMobile.Text;
-                address = textBoxAddress.Text;
+                string name = $"{textBoxFirstName.Text} {textBoxLastName.Text}";
+                string mobile = textBoxMobile.Text;
+                string address = textBoxAddress.Text;
                 //what will be written to the text file
                 string appendment = $@"Name: {name}
 Mobile number: {mobile}
@@ -214,15 +201,34 @@ Regular payments: {regularPayments:C}
                 //check if button pressed was "ok"
                 if (result == DialogResult.OK)
                 {
-                    //try write to file
+                    //try write to database
                     try
                     {
-                        //write to file
-                        StreamWriter writer = new StreamWriter(path);
-                        writer.WriteLine(appendment);
-                        //close file
-                        writer.Close();
-                        MessageBox.Show($"Assigned member ID: {id}");
+                        //new member row
+                        CityGymDatabaseDataSet.MemberRow memberRow = cityGymDatabaseDataSet.Member.NewMemberRow();
+                        memberRow.Firstname = textBoxFirstName.Text;
+                        memberRow.Lastname = textBoxLastName.Text;
+                        memberRow.Address = address;
+                        memberRow.Mobile = mobile;
+                        memberRow.DirectDebit = checkBoxDirect.Checked;
+                        memberRow.PaymentFrequency = comboBoxFrequency.Text;
+                        memberRow.MembershipExpiry = DateTime.Today.AddMonths(Int32.Parse(comboBoxDuration.Text.Split(' ')[0]));
+                        memberRow._24HourAccess = checkBox247.Checked;
+                        memberRow.DietConsultation = checkBoxDiet.Checked;
+                        memberRow.PersonalTrainer = checkBoxTrainer.Checked;
+                        memberRow.OnlineVideoAccess = checkBoxVideos.Checked;
+                        //add to database
+                        cityGymDatabaseDataSet.Member.Rows.Add(memberRow);
+                        this.tableAdapterManager.UpdateAll(cityGymDatabaseDataSet);
+                        DataRow last = cityGymDatabaseDataSet.Member.Rows[cityGymDatabaseDataSet.Member.Rows.Count - 1];
+                        MessageBox.Show($"Member assigned MemberID {last[0]}");
+                        //new membermembership row
+                        CityGymDatabaseDataSet.MemberMembershipRow memberMembershipRow = cityGymDatabaseDataSet.MemberMembership.NewMemberMembershipRow();
+                        memberMembershipRow.MemberID = Int32.Parse(last[0].ToString());
+                        memberMembershipRow.MembershipID = comboBoxType.SelectedIndex + 1;
+                        //add to database
+                        cityGymDatabaseDataSet.MemberMembership.Rows.Add(memberMembershipRow);
+                        this.tableAdapterManager.UpdateAll(cityGymDatabaseDataSet);
                     }
                     catch (Exception ex)
                     {
@@ -257,6 +263,23 @@ Regular payments: {regularPayments:C}
         private void Signup_FormClosing(object sender, FormClosingEventArgs e)
         {
             menuInstance.Show();
+        }
+
+        private void memberBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.memberBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.cityGymDatabaseDataSet);
+
+        }
+
+        private void Signup_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'cityGymDatabaseDataSet.MemberMembership' table. You can move, or remove it, as needed.
+            this.memberMembershipTableAdapter.Fill(this.cityGymDatabaseDataSet.MemberMembership);
+            // TODO: This line of code loads data into the 'cityGymDatabaseDataSet.Member' table. You can move, or remove it, as needed.
+            this.memberTableAdapter.Fill(this.cityGymDatabaseDataSet.Member);
+
         }
     }
 }
