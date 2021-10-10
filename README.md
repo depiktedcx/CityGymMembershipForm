@@ -1,5 +1,5 @@
 # CityGymMembershipForm
-Assignment 2 of BIT502 Open Polytechnic
+# Assignment 2 of BIT502 Open Polytechnic
 
 Task 1: Create the Gym Membership UI
 Your task is to build a C# GUI application for City Gym. This C# Windows application
@@ -32,3 +32,35 @@ incomplete fields or incorrect user input.
 <br>
 Note: You are not required to make an exact replica of your prototype. Any deviation
 from your prototype will not impact your final grade for this assignment
+
+# Assignment 3 of BIT502 Open Polytechnic
+Your next task is to implement the code for part of the application you have
+designed from Task 1. It is recommended you save the Visual Studio project you
+worked on for your second assignment as a new solution. This way, you can reuse
+the membership form you created.
+<br>
+You will then create the following screens:
+<br>
+    *The main menu screen: The user should be able to navigate to the individual
+screens, to easily return to it, and to be able to exit the application.
+    *The membership form screen: You will have already completed the
+membership form from Assignment 2. However, you will now need to make
+sure that when the new member is saved, the information is stored in the
+database rather than written to a file.
+    *Search members screen: To meet the requirements of being able to search
+for members (see Appendix A), you will need to add a data grid to this form.
+    *Fitness class booking screen: You will need to build this form into your
+Visual Studio solution. However, the only code you will need to add to this
+form is the code to close the form and return the user to the main menu
+screen. The form is a prototype only.
+<br>
+Then, create the database you designed for Task 1, and configure the data source to
+display tables.
+<br>
+You will also need to populate the database with the sample data (see Appendix B).
+Remember, your design should capture all of the client’s requirements that are
+outlined in the case study information. For the implementation of this task, you will be
+assessed on your ability to meet the client’s requirements, the functionality of overall
+application, and the readability of your code.
+<br>
+Refer to the marking schedule for further guidance.
