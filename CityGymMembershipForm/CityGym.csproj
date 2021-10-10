@@ -77,6 +77,12 @@
     <Compile Include="Fitness Class Booking.Designer.cs">
       <DependentUpon>Fitness Class Booking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Fitness Class Booking.resx">
       <DependentUpon>Fitness Class Booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -172,6 +181,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>cityGymDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Resources\help-book.PNG" />
+    <Content Include="Resources\help-menu.PNG" />
+    <Content Include="Resources\help-search.PNG" />
+    <Content Include="Resources\help-signup.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

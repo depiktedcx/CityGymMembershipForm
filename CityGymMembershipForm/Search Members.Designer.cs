@@ -35,11 +35,6 @@
             this.memberTableAdapter = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.MemberTableAdapter();
             this.tableAdapterManager = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.TableAdapterManager();
             this.memberDataGridView = new System.Windows.Forms.DataGridView();
-            this.labelSearch = new System.Windows.Forms.Label();
-            this.comboBoxSearch = new System.Windows.Forms.ComboBox();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.buttonClear = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,9 +47,16 @@
             this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.labelSearch = new System.Windows.Forms.Label();
+            this.comboBoxSearch = new System.Windows.Forms.ComboBox();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.comboBoxMembership = new System.Windows.Forms.ComboBox();
             this.memberMembershipBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.memberMembershipTableAdapter = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.MemberMembershipTableAdapter();
+            this.buttonHelp = new System.Windows.Forms.Button();
+            this.labelText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cityGymDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberDataGridView)).BeginInit();
@@ -106,66 +108,11 @@
             this.dataGridViewCheckBoxColumn4,
             this.dataGridViewCheckBoxColumn5});
             this.memberDataGridView.DataSource = this.memberBindingSource;
-            this.memberDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.memberDataGridView.Location = new System.Drawing.Point(12, 52);
             this.memberDataGridView.Name = "memberDataGridView";
             this.memberDataGridView.ReadOnly = true;
             this.memberDataGridView.Size = new System.Drawing.Size(1264, 220);
             this.memberDataGridView.TabIndex = 1;
-            // 
-            // labelSearch
-            // 
-            this.labelSearch.AutoSize = true;
-            this.labelSearch.Location = new System.Drawing.Point(454, 257);
-            this.labelSearch.Name = "labelSearch";
-            this.labelSearch.Size = new System.Drawing.Size(86, 13);
-            this.labelSearch.TabIndex = 2;
-            this.labelSearch.Text = "Search members";
-            // 
-            // comboBoxSearch
-            // 
-            this.comboBoxSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSearch.FormattingEnabled = true;
-            this.comboBoxSearch.Items.AddRange(new object[] {
-            "Any",
-            "MemberID",
-            "Firstname",
-            "Lastname",
-            "Address",
-            "Mobile",
-            "Membership"});
-            this.comboBoxSearch.Location = new System.Drawing.Point(546, 254);
-            this.comboBoxSearch.Name = "comboBoxSearch";
-            this.comboBoxSearch.Size = new System.Drawing.Size(89, 21);
-            this.comboBoxSearch.TabIndex = 3;
-            this.comboBoxSearch.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearch_SelectedIndexChanged);
-            // 
-            // textBoxSearch
-            // 
-            this.textBoxSearch.Location = new System.Drawing.Point(641, 254);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(200, 20);
-            this.textBoxSearch.TabIndex = 4;
-            this.textBoxSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearch_KeyPress);
-            // 
-            // buttonSearch
-            // 
-            this.buttonSearch.Location = new System.Drawing.Point(766, 280);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
-            this.buttonSearch.TabIndex = 5;
-            this.buttonSearch.Text = "Search";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
-            // 
-            // buttonClear
-            // 
-            this.buttonClear.Location = new System.Drawing.Point(641, 280);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(75, 23);
-            this.buttonClear.TabIndex = 6;
-            this.buttonClear.Text = "Clear";
-            this.buttonClear.UseVisualStyleBackColor = true;
-            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -251,6 +198,61 @@
             this.dataGridViewCheckBoxColumn5.Name = "dataGridViewCheckBoxColumn5";
             this.dataGridViewCheckBoxColumn5.ReadOnly = true;
             // 
+            // labelSearch
+            // 
+            this.labelSearch.AutoSize = true;
+            this.labelSearch.Location = new System.Drawing.Point(454, 297);
+            this.labelSearch.Name = "labelSearch";
+            this.labelSearch.Size = new System.Drawing.Size(86, 13);
+            this.labelSearch.TabIndex = 2;
+            this.labelSearch.Text = "Search members";
+            // 
+            // comboBoxSearch
+            // 
+            this.comboBoxSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSearch.FormattingEnabled = true;
+            this.comboBoxSearch.Items.AddRange(new object[] {
+            "Any",
+            "MemberID",
+            "Firstname",
+            "Lastname",
+            "Address",
+            "Mobile",
+            "Membership"});
+            this.comboBoxSearch.Location = new System.Drawing.Point(546, 294);
+            this.comboBoxSearch.Name = "comboBoxSearch";
+            this.comboBoxSearch.Size = new System.Drawing.Size(89, 21);
+            this.comboBoxSearch.TabIndex = 3;
+            this.comboBoxSearch.SelectedIndexChanged += new System.EventHandler(this.comboBoxSearch_SelectedIndexChanged);
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(641, 294);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(200, 20);
+            this.textBoxSearch.TabIndex = 4;
+            this.textBoxSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearch_KeyPress);
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(766, 320);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.TabIndex = 5;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(641, 320);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.TabIndex = 6;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // comboBoxMembership
             // 
             this.comboBoxMembership.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -260,7 +262,7 @@
             "Basic",
             "Regular",
             "Premium"});
-            this.comboBoxMembership.Location = new System.Drawing.Point(641, 253);
+            this.comboBoxMembership.Location = new System.Drawing.Point(641, 293);
             this.comboBoxMembership.Name = "comboBoxMembership";
             this.comboBoxMembership.Size = new System.Drawing.Size(200, 21);
             this.comboBoxMembership.TabIndex = 8;
@@ -274,11 +276,32 @@
             // 
             this.memberMembershipTableAdapter.ClearBeforeFill = true;
             // 
+            // buttonHelp
+            // 
+            this.buttonHelp.Location = new System.Drawing.Point(12, 12);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(75, 23);
+            this.buttonHelp.TabIndex = 44;
+            this.buttonHelp.Text = "Help";
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            // 
+            // labelText
+            // 
+            this.labelText.AutoSize = true;
+            this.labelText.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelText.Location = new System.Drawing.Point(572, 12);
+            this.labelText.Name = "labelText";
+            this.labelText.Size = new System.Drawing.Size(144, 33);
+            this.labelText.TabIndex = 45;
+            this.labelText.Text = "Members";
+            // 
             // Search_Members
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1287, 317);
+            this.ClientSize = new System.Drawing.Size(1287, 356);
+            this.Controls.Add(this.labelText);
+            this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.comboBoxMembership);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonSearch);
@@ -328,5 +351,7 @@
         private System.Windows.Forms.ComboBox comboBoxMembership;
         private System.Windows.Forms.BindingSource memberMembershipBindingSource;
         private CityGymDatabaseDataSetTableAdapters.MemberMembershipTableAdapter memberMembershipTableAdapter;
+        private System.Windows.Forms.Button buttonHelp;
+        private System.Windows.Forms.Label labelText;
     }
 }

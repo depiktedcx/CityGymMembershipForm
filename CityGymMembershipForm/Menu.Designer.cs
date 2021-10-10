@@ -32,7 +32,7 @@
             this.buttonJoin = new System.Windows.Forms.Button();
             this.buttonView = new System.Windows.Forms.Button();
             this.buttonBook = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonJoin
@@ -68,21 +68,22 @@
             this.buttonBook.UseVisualStyleBackColor = true;
             this.buttonBook.Click += new System.EventHandler(this.buttonBook_Click);
             // 
-            // button1
+            // buttonHelp
             // 
-            this.button1.Location = new System.Drawing.Point(13, 236);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonHelp.Location = new System.Drawing.Point(12, 236);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(75, 23);
+            this.buttonHelp.TabIndex = 3;
+            this.buttonHelp.Text = "Help";
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(332, 271);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.buttonBook);
             this.Controls.Add(this.buttonView);
             this.Controls.Add(this.buttonJoin);
@@ -101,6 +102,6 @@
         private System.Windows.Forms.Button buttonJoin;
         private System.Windows.Forms.Button buttonView;
         private System.Windows.Forms.Button buttonBook;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonHelp;
     }
 }

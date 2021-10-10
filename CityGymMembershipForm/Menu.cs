@@ -46,5 +46,10 @@ namespace CityGymMembershipForm
             new Fitness_Class_Booking(this).Show();
             this.Hide();
         }
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            new Help("menu").Show();
+        }
     }
 }

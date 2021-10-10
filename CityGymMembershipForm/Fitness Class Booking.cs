@@ -27,5 +27,26 @@ namespace CityGymMembershipForm
         {
             menuInstance.Show();
         }
+
+        private void bookingBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.bookingBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.cityGymDatabaseDataSet);
+
+        }
+
+        private void Fitness_Class_Booking_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'cityGymDatabaseDataSet.Booking' table. You can move, or remove it, as needed.
+            this.bookingTableAdapter.Fill(this.cityGymDatabaseDataSet.Booking);
+
+        }
+
+        private void buttonConfirm_Click(object sender, EventArgs e)
+        {
+            //lockout user from changing the ID after confirming their identity
+            textBoxID.Enabled = false;
+        }
     }
 }

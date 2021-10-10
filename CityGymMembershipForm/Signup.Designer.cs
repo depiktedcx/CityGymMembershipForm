@@ -79,6 +79,7 @@ namespace CityGymMembershipForm
             this.tableAdapterManager = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.TableAdapterManager();
             this.memberMembershipTableAdapter = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.MemberMembershipTableAdapter();
             this.memberMembershipBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonHelp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityGymDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).BeginInit();
@@ -464,7 +465,7 @@ namespace CityGymMembershipForm
             this.buttonSubmit.Name = "buttonSubmit";
             this.buttonSubmit.Size = new System.Drawing.Size(75, 23);
             this.buttonSubmit.TabIndex = 37;
-            this.buttonSubmit.Text = "Submit";
+            this.buttonSubmit.Text = "Register";
             this.toolTip1.SetToolTip(this.buttonSubmit, "Submit your details to the \"Member\" table in database");
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
@@ -554,11 +555,21 @@ namespace CityGymMembershipForm
             this.memberMembershipBindingSource.DataMember = "MemberMembership";
             this.memberMembershipBindingSource.DataSource = this.cityGymDatabaseDataSet;
             // 
+            // buttonHelp
+            // 
+            this.buttonHelp.Location = new System.Drawing.Point(26, 12);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(75, 23);
+            this.buttonHelp.TabIndex = 43;
+            this.buttonHelp.Text = "Help";
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            // 
             // Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 638);
+            this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.buttonCalculate);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.labelLine2);
@@ -665,6 +676,7 @@ namespace CityGymMembershipForm
         private CityGymDatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private CityGymDatabaseDataSetTableAdapters.MemberMembershipTableAdapter memberMembershipTableAdapter;
         private System.Windows.Forms.BindingSource memberMembershipBindingSource;
+        private System.Windows.Forms.Button buttonHelp;
     }
 }
 
