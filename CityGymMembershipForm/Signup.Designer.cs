@@ -612,9 +612,9 @@ namespace CityGymMembershipForm
             this.Controls.Add(this.labelFirstName);
             this.Controls.Add(this.labelCustomerDetails);
             this.Controls.Add(this.labelTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(633, 677);
-            this.MinimumSize = new System.Drawing.Size(633, 677);
+            this.MaximizeBox = false;
             this.Name = "Signup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Signup Form";

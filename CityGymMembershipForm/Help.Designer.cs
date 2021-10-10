@@ -118,6 +118,8 @@
             this.Controls.Add(this.pictureBoxSearch);
             this.Controls.Add(this.pictureBoxMenu);
             this.Controls.Add(this.pictureBoxSignup);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Help";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Help";

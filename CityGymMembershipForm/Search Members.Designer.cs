@@ -310,7 +310,9 @@
             this.Controls.Add(this.comboBoxSearch);
             this.Controls.Add(this.labelSearch);
             this.Controls.Add(this.memberDataGridView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Search_Members";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search_Members";

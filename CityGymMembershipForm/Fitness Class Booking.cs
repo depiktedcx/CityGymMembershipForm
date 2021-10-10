@@ -48,8 +48,22 @@ namespace CityGymMembershipForm
 
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
-            //lockout user from changing the ID after confirming their identity
-            textBoxID.Enabled = false;
+            //TODO: disable editing of memberID textbox
+            //TODO: disable member search button
+            //TODO: disable confirm button
+            //TODO: enable reset member button
+            //TODO: enable datagrid to allow class selection
+            //TODO: enable book class button
+        }
+
+        private void buttonResetMember_Click(object sender, EventArgs e)
+        {
+            //TODO: enable editing of memberID textbox
+            //TODO: enable member search button
+            //TODO: enable confirm button
+            //TODO: disable reset member button
+            //TODO: disable datagrid to allow class selection
+            //TODO: disable book class button
         }
         /// <summary>
         /// Show help page
