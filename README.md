@@ -1,4 +1,5 @@
 # CityGymMembershipForm
+Programming portion of assignment 2 and 3 of BIT502 at Open Polytechnic
 # Assignment 2 of BIT502 Open Polytechnic
 
 Task 1: Create the Gym Membership UI
