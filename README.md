@@ -40,7 +40,6 @@ worked on for your second assignment as a new solution. This way, you can reuse
 the membership form you created.
 <br>
 You will then create the following screens:
-<br>
     * The main menu screen: The user should be able to navigate to the individual
 screens, to easily return to it, and to be able to exit the application.
     * The membership form screen: You will have already completed the
