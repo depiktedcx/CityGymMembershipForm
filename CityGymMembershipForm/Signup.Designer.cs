@@ -203,6 +203,7 @@ namespace CityGymMembershipForm
             this.comboBoxFrequency.Name = "comboBoxFrequency";
             this.comboBoxFrequency.Size = new System.Drawing.Size(104, 21);
             this.comboBoxFrequency.TabIndex = 22;
+            this.toolTip1.SetToolTip(this.comboBoxFrequency, "Select how often will they be paying");
             // 
             // labelMembershipDetails
             // 
@@ -313,6 +314,7 @@ namespace CityGymMembershipForm
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(113, 21);
             this.comboBoxType.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.comboBoxType, "Select level of membership");
             // 
             // comboBoxDuration
             // 
@@ -326,9 +328,7 @@ namespace CityGymMembershipForm
             this.comboBoxDuration.Name = "comboBoxDuration";
             this.comboBoxDuration.Size = new System.Drawing.Size(113, 21);
             this.comboBoxDuration.TabIndex = 15;
-            this.toolTip1.SetToolTip(this.comboBoxDuration, "* Sign up for a 12-month contract to receive a\r\n$2 per week discount on any membe" +
-        "rship type.\r\n\r\n** Sign up for 24-month contract to receive a\r\n$5 per week discou" +
-        "nt on any membership type.");
+            this.toolTip1.SetToolTip(this.comboBoxDuration, resources.GetString("comboBoxDuration.ToolTip"));
             // 
             // checkBoxDirect
             // 
@@ -465,7 +465,7 @@ namespace CityGymMembershipForm
             this.buttonSubmit.Size = new System.Drawing.Size(75, 23);
             this.buttonSubmit.TabIndex = 37;
             this.buttonSubmit.Text = "Submit";
-            this.toolTip1.SetToolTip(this.buttonSubmit, "Submit your details and export to a .TXT file");
+            this.toolTip1.SetToolTip(this.buttonSubmit, "Submit your details to the \"Member\" table in database");
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 

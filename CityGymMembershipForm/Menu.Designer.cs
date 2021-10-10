@@ -32,6 +32,7 @@
             this.buttonJoin = new System.Windows.Forms.Button();
             this.buttonView = new System.Windows.Forms.Button();
             this.buttonBook = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonJoin
@@ -59,7 +60,7 @@
             // buttonBook
             // 
             this.buttonBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBook.Location = new System.Drawing.Point(12, 174);
+            this.buttonBook.Location = new System.Drawing.Point(12, 168);
             this.buttonBook.Name = "buttonBook";
             this.buttonBook.Size = new System.Drawing.Size(308, 52);
             this.buttonBook.TabIndex = 2;
@@ -67,17 +68,27 @@
             this.buttonBook.UseVisualStyleBackColor = true;
             this.buttonBook.Click += new System.EventHandler(this.buttonBook_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(13, 236);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(332, 241);
+            this.ClientSize = new System.Drawing.Size(332, 271);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonBook);
             this.Controls.Add(this.buttonView);
             this.Controls.Add(this.buttonJoin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(348, 280);
-            this.MinimumSize = new System.Drawing.Size(348, 280);
+            this.MaximumSize = new System.Drawing.Size(348, 310);
+            this.MinimumSize = new System.Drawing.Size(348, 310);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
@@ -90,5 +101,6 @@
         private System.Windows.Forms.Button buttonJoin;
         private System.Windows.Forms.Button buttonView;
         private System.Windows.Forms.Button buttonBook;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -17,9 +17,12 @@ namespace CityGymMembershipForm
         public Search_Members(Menu m)
         {
             InitializeComponent();
+            //set starting index
             comboBoxSearch.SelectedIndex = 0;
             comboBoxMembership.SelectedIndex = 0;
+            //by default hid the membership filter box
             comboBoxMembership.Visible = false;
+            //hold the menu instance
             menuInstance = m;
         }
 
@@ -60,45 +63,57 @@ namespace CityGymMembershipForm
         {
             try
             {
+                //Check if searching by membership or others
                 if (textBoxSearch.Visible)
                 {
                     DataView dataView = new DataView(cityGymDatabaseDataSet.Member);
+                    //check the search type
                     switch (comboBoxSearch.Text)
                     {
                         case "Any":
+                            //try parse the text as an int
                             if (int.TryParse(textBoxSearch.Text, out int parse))
                             {
+                                //include memberid in search if it can be parsed as int
                                 dataView.RowFilter = $"[MemberID] = {parse} OR [Firstname] LIKE '*{textBoxSearch.Text}*' OR [Lastname] LIKE '*{textBoxSearch.Text}*'" +
                                     $" OR [Address] LIKE '*{textBoxSearch.Text}*' OR [Mobile] LIKE '*{textBoxSearch.Text}*'";
                             }
                             else
                             {
+                                //exclude memberid from search if parse fails
                                 dataView.RowFilter = $"[Firstname] LIKE '*{textBoxSearch.Text}*' OR [Lastname] LIKE '*{textBoxSearch.Text}*'" +
                                     $" OR [Address] LIKE '*{textBoxSearch.Text}*' OR [Mobile] LIKE '*{textBoxSearch.Text}*'";
                             }
                             break;
                         case "MemberID":
+                            //filter by memberid
                             dataView.RowFilter = $"[MemberID] = {int.Parse(textBoxSearch.Text)}";
                             break;
                         default:
+                            //filter everything else
                             dataView.RowFilter = $"{comboBoxSearch.Text} LIKE '*{textBoxSearch.Text}*'";
                             break;
                     }
+                    //show data on datagrid
                     memberDataGridView.DataSource = dataView;
                 }
                 else
                 {
                     DataView dataView = new DataView(cityGymDatabaseDataSet.MemberMembership);
                     List<int> members = new List<int>();
+                    //ensure it is not filtering for any membership type
                     if (comboBoxMembership.SelectedIndex != 0)
                     {
+                        //filter by the membership type
                         dataView.RowFilter = $"[MembershipID] = {comboBoxMembership.SelectedIndex}";
+                        //get all memberid from the rows associated with the membership type
                         foreach (DataRowView r in dataView)
                         {
                             members.Add(Int32.Parse(r[1].ToString()));
                         }
                         dataView = new DataView(cityGymDatabaseDataSet.Member);
                         string expression = "";
+                        //create filter for members associated with membership type
                         for (int i = 0; i < members.Count; i++)
                         {
                             expression += $"[MemberID] = {members[i]}";
@@ -107,18 +122,21 @@ namespace CityGymMembershipForm
                                 expression += " OR ";
                             }
                         }
+                        //filter and display results
                         dataView.RowFilter = expression;
                         memberDataGridView.DataSource = dataView;
                     }
                     else
                     {
+                        //show all results
                         memberDataGridView.DataSource = cityGymDatabaseDataSet.Member;
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //Display error message
+                MessageBox.Show($"Error occurred, search could not be completed\n{ex.Message}");
             }
         }
         /// <summary>
@@ -150,6 +168,7 @@ namespace CityGymMembershipForm
         /// <param name="e"></param>
         private void comboBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Check whether 'membership' is selected and display as required
             if (comboBoxSearch.Text.Equals("Membership"))
             {
                 textBoxSearch.Visible = false;
