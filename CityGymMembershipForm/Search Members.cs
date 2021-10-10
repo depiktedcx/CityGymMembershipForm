@@ -14,6 +14,7 @@ namespace CityGymMembershipForm
     {
         //Menu instance
         Menu menuInstance;
+        Help helpInstance;
         public Search_Members(Menu m)
         {
             InitializeComponent();
@@ -147,6 +148,8 @@ namespace CityGymMembershipForm
         private void Search_Members_FormClosing(object sender, FormClosingEventArgs e)
         {
             menuInstance.Show();
+            helpInstance = null;
+            GC.Collect();
         }
         /// <summary>
         /// Trigger search when enter button is hit
@@ -179,6 +182,33 @@ namespace CityGymMembershipForm
                 comboBoxMembership.Visible = false;
                 textBoxSearch.Visible = true;
             }
+        }
+        /// <summary>
+        /// Show help page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            //check if an instance of help already exists or if the instance exists, is it active
+            if (helpInstance == null || !helpInstance.getActive())
+            {
+                //if it exists but isn't active
+                if (helpInstance != null)
+                {
+                    //dereference the inactive form and force garbage collection
+                    helpInstance = null;
+                    GC.Collect();
+                }
+                //create a new instance with this form as its start
+                helpInstance = new Help("search");
+                helpInstance.Show();
+            }
+            if (helpInstance.WindowState == FormWindowState.Minimized)
+            {
+                helpInstance.WindowState = FormWindowState.Normal;
+            }
+            helpInstance.Focus();
         }
     }
 }

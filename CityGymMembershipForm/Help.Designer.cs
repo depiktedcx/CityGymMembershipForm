@@ -90,20 +90,20 @@
             this.buttonPrev.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPrev.Location = new System.Drawing.Point(0, 0);
             this.buttonPrev.Name = "buttonPrev";
-            this.buttonPrev.Size = new System.Drawing.Size(120, 44);
+            this.buttonPrev.Size = new System.Drawing.Size(232, 44);
             this.buttonPrev.TabIndex = 4;
-            this.buttonPrev.Text = "Previous";
+            this.buttonPrev.Text = "Previous Page";
             this.buttonPrev.UseVisualStyleBackColor = true;
             this.buttonPrev.Click += new System.EventHandler(this.buttonPrev_Click);
             // 
             // buttonNext
             // 
             this.buttonNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNext.Location = new System.Drawing.Point(131, 56);
+            this.buttonNext.Location = new System.Drawing.Point(0, 56);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(101, 44);
+            this.buttonNext.Size = new System.Drawing.Size(232, 44);
             this.buttonNext.TabIndex = 5;
-            this.buttonNext.Text = "Next";
+            this.buttonNext.Text = "Next Page";
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
@@ -119,7 +119,9 @@
             this.Controls.Add(this.pictureBoxMenu);
             this.Controls.Add(this.pictureBoxSignup);
             this.Name = "Help";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Help";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Help_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSignup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearch)).EndInit();

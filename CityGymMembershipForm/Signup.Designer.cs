@@ -72,7 +72,6 @@ namespace CityGymMembershipForm
             this.labelDetails = new System.Windows.Forms.Label();
             this.buttonCalculate = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.cityGymDatabaseDataSet = new CityGymMembershipForm.CityGymDatabaseDataSet();
             this.memberBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.memberTableAdapter = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.MemberTableAdapter();
@@ -80,10 +79,11 @@ namespace CityGymMembershipForm
             this.memberMembershipTableAdapter = new CityGymMembershipForm.CityGymDatabaseDataSetTableAdapters.MemberMembershipTableAdapter();
             this.memberMembershipBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonHelp = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.cityGymDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberMembershipBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -512,16 +512,6 @@ namespace CityGymMembershipForm
             // 
             this.toolTip1.ShowAlways = true;
             // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.BackgroundImage = global::CityGymMembershipForm.Properties.Resources.logo;
-            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(225, 12);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(190, 70);
-            this.pictureBoxLogo.TabIndex = 42;
-            this.pictureBoxLogo.TabStop = false;
-            // 
             // cityGymDatabaseDataSet
             // 
             this.cityGymDatabaseDataSet.DataSetName = "CityGymDatabaseDataSet";
@@ -563,6 +553,17 @@ namespace CityGymMembershipForm
             this.buttonHelp.TabIndex = 43;
             this.buttonHelp.Text = "Help";
             this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackgroundImage = global::CityGymMembershipForm.Properties.Resources.logo;
+            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(225, 12);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(190, 70);
+            this.pictureBoxLogo.TabIndex = 42;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // Signup
             // 
@@ -618,10 +619,10 @@ namespace CityGymMembershipForm
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Signup Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Signup_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cityGymDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberMembershipBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

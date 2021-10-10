@@ -13,6 +13,7 @@ namespace CityGymMembershipForm
     public partial class Fitness_Class_Booking : Form
     {
         Menu menuInstance;
+        Help helpInstance;
         public Fitness_Class_Booking(Menu m)
         {
             InitializeComponent();
@@ -26,6 +27,8 @@ namespace CityGymMembershipForm
         private void Fitness_Class_Booking_FormClosing(object sender, FormClosingEventArgs e)
         {
             menuInstance.Show();
+            helpInstance = null;
+            GC.Collect();
         }
 
         private void bookingBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -47,6 +50,33 @@ namespace CityGymMembershipForm
         {
             //lockout user from changing the ID after confirming their identity
             textBoxID.Enabled = false;
+        }
+        /// <summary>
+        /// Show help page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            //check if an instance of help already exists or if the instance exists, is it active
+            if (helpInstance == null || !helpInstance.getActive())
+            {
+                //if it exists but isn't active
+                if (helpInstance != null)
+                {
+                    //dereference the inactive form and force garbage collection
+                    helpInstance = null;
+                    GC.Collect();
+                }
+                //create a new instance with this form as its start
+                helpInstance = new Help("book");
+                helpInstance.Show();
+            }
+            if (helpInstance.WindowState == FormWindowState.Minimized)
+            {
+                helpInstance.WindowState = FormWindowState.Normal;
+            }
+            helpInstance.Focus();
         }
     }
 }

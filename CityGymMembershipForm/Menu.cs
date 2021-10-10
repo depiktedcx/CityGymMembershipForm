@@ -12,6 +12,7 @@ namespace CityGymMembershipForm
 {
     public partial class Menu : Form
     {
+        Help helpInstance;
         public Menu()
         {
             InitializeComponent();
@@ -24,6 +25,10 @@ namespace CityGymMembershipForm
         private void buttonJoin_Click(object sender, EventArgs e)
         {
             new Signup(this).Show();
+            if(helpInstance != null)
+            {
+                helpInstance.Close();
+            }
             this.Hide();
         }
         /// <summary>
@@ -34,6 +39,10 @@ namespace CityGymMembershipForm
         private void buttonView_Click(object sender, EventArgs e)
         {
             new Search_Members(this).Show();
+            if (helpInstance != null)
+            {
+                helpInstance.Close();
+            }
             this.Hide();
         }
         /// <summary>
@@ -44,12 +53,44 @@ namespace CityGymMembershipForm
         private void buttonBook_Click(object sender, EventArgs e)
         {
             new Fitness_Class_Booking(this).Show();
+            if (helpInstance != null)
+            {
+                helpInstance.Close();
+            }
             this.Hide();
         }
-
+        /// <summary>
+        /// Show help page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonHelp_Click(object sender, EventArgs e)
         {
-            new Help("menu").Show();
+            //check if an instance of help already exists or if the instance exists, is it active
+            if (helpInstance == null || !helpInstance.getActive())
+            {
+                //if it exists but isn't active
+                if(helpInstance != null)
+                {
+                    //dereference the inactive form and force garbage collection
+                    helpInstance = null;
+                    GC.Collect();
+                }
+                //create a new instance with this form as its start
+                helpInstance = new Help("menu");
+                helpInstance.Show();
+            }
+            if(helpInstance.WindowState == FormWindowState.Minimized)
+            {
+                helpInstance.WindowState = FormWindowState.Normal;
+            }
+            helpInstance.Focus();
+        }
+
+        private void Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            helpInstance = null;
+            GC.Collect();
         }
     }
 }

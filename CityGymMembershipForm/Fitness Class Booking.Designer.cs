@@ -176,6 +176,7 @@
             this.buttonHelp.TabIndex = 44;
             this.buttonHelp.Text = "Help";
             this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
             // 
             // labelHaha
             // 

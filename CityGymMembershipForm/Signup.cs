@@ -25,6 +25,7 @@ namespace CityGymMembershipForm
         List<string> extras = new List<string>();
         //menu instance
         Menu menuInstance;
+        Help helpInstance;
         public Signup(Menu m)
         {
             InitializeComponent();
@@ -265,6 +266,35 @@ Regular payments: {regularPayments:C}
         private void Signup_FormClosing(object sender, FormClosingEventArgs e)
         {
             menuInstance.Show();
+            helpInstance = null;
+            GC.Collect();
+        }
+        /// <summary>
+        /// Show help page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            //check if an instance of help already exists or if the instance exists, is it active
+            if (helpInstance == null || !helpInstance.getActive())
+            {
+                //if it exists but isn't active
+                if (helpInstance != null)
+                {
+                    //dereference the inactive form and force garbage collection
+                    helpInstance = null;
+                    GC.Collect();
+                }
+                //create a new instance with this form as its start
+                helpInstance = new Help("signup");
+                helpInstance.Show();
+            }
+            if (helpInstance.WindowState == FormWindowState.Minimized)
+            {
+                helpInstance.WindowState = FormWindowState.Normal;
+            }
+            helpInstance.Focus();
         }
     }
 }
