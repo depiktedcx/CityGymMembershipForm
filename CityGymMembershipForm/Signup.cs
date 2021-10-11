@@ -290,10 +290,13 @@ Regular payments: {regularPayments:C}
                 helpInstance = new Help("signup");
                 helpInstance.Show();
             }
+            //Check if the form is minimized
             if (helpInstance.WindowState == FormWindowState.Minimized)
             {
+                //Bring it back up
                 helpInstance.WindowState = FormWindowState.Normal;
             }
+            //Set focus to form
             helpInstance.Focus();
         }
     }

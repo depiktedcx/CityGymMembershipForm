@@ -86,10 +86,13 @@ namespace CityGymMembershipForm
                 helpInstance = new Help("book");
                 helpInstance.Show();
             }
+            //Check if the form is minimized
             if (helpInstance.WindowState == FormWindowState.Minimized)
             {
+                //Bring it back up
                 helpInstance.WindowState = FormWindowState.Normal;
             }
+            //Set focus to form
             helpInstance.Focus();
         }
     }
