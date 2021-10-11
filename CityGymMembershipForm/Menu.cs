@@ -21,7 +21,8 @@ namespace CityGymMembershipForm
             RegistryKey r = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\MICROSOFT\Microsoft SQL Server");
             if (r == null)
             {
-                MessageBox.Show($"SQL Server is not installed for {Environment.UserName}. Program will be disabled.", "SQL Express not found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //Show message and disable buttons except help
+                MessageBox.Show($"SQL Server Express is not installed for {Environment.UserName}. Program will be disabled.\nPlease install SQL Server Express from:\nhttps://www.microsoft.com/en-us/sql-server/sql-server-downloads", "SQL Server Express not found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 buttonBook.Enabled = false;
                 buttonJoin.Enabled = false;
                 buttonView.Enabled = false;

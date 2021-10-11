@@ -161,6 +161,7 @@ namespace CityGymMembershipForm
             // textBoxFirstName
             // 
             this.textBoxFirstName.Location = new System.Drawing.Point(107, 160);
+            this.textBoxFirstName.MaxLength = 50;
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(177, 20);
             this.textBoxFirstName.TabIndex = 4;
@@ -169,6 +170,7 @@ namespace CityGymMembershipForm
             // textBoxLastName
             // 
             this.textBoxLastName.Location = new System.Drawing.Point(410, 157);
+            this.textBoxLastName.MaxLength = 50;
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(177, 20);
             this.textBoxLastName.TabIndex = 6;
@@ -177,6 +179,7 @@ namespace CityGymMembershipForm
             // textBoxAddress
             // 
             this.textBoxAddress.Location = new System.Drawing.Point(107, 189);
+            this.textBoxAddress.MaxLength = 100;
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(177, 57);
