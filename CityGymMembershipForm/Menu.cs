@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace CityGymMembershipForm
 {
@@ -16,6 +17,15 @@ namespace CityGymMembershipForm
         public Menu()
         {
             InitializeComponent();
+            //Check for SQL Server
+            RegistryKey r = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\MICROSOFT\Microsoft SQL Server");
+            if (r == null)
+            {
+                MessageBox.Show($"SQL Server is not installed for {Environment.UserName}. Program will be disabled.", "SQL Express not found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                buttonBook.Enabled = false;
+                buttonJoin.Enabled = false;
+                buttonView.Enabled = false;
+            }
         }
         /// <summary>
         /// Open Signup form
